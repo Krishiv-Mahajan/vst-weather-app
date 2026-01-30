@@ -1,0 +1,112 @@
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+	font-family: "Poppins", system-ui, -apple-system, sans-serif;
+    font-size: 21px;
+}
+
+body{
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    width: 100vw;
+
+}
+
+header{
+
+    background-color: rgb(33, 103, 131);
+    height: 9vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main{
+
+    background-color: rgb(145, 195, 190);
+    height: 91vh;
+    
+}
+
+.weather-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    height: 91vh;
+    gap: 20px;
+    padding: 30px;
+}
+
+.temperature{
+    height: 200px;
+    width: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.location-data{
+    height: 200px;
+    width: 220px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    gap: 8px;
+}
+
+.location {
+    font-size: 32px;
+    font-weight: bold;
+}
+
+.time {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.day {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.date {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+.weather-status {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #333;
+    gap: 10px;
+}
+
+.icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.icon img {
+    height: 80px;
+    width: 80px;
+}
+
+.condition {
+    font-size: 18px;
+    font-weight: 600;
+}
+
