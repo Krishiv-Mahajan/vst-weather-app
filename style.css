@@ -6,6 +6,72 @@
     font-size: 21px;
 }
 
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes glow {
+    0%, 100% {
+        box-shadow: 0 8px 32px rgba(31, 38, 135, 0.37), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    }
+    50% {
+        box-shadow: 0 12px 40px rgba(102, 126, 234, 0.5), inset 0 0 30px rgba(255, 255, 255, 0.1);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes popIn {
+    from {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@keyframes dataUpdate {
+    0% {
+        opacity: 0.5;
+        transform: rotateY(90deg);
+    }
+    100% {
+        opacity: 1;
+        transform: rotateY(0deg);
+    }
+}
+
+.update-data {
+    animation: dataUpdate 0.5s ease-out !important;
+}
+
 body{
     display: flex;
     flex-direction: column;
@@ -15,19 +81,34 @@ body{
 }
 
 header{
-
-    background-color: rgb(33, 103, 131);
-    height: 9vh;
+    background: linear-gradient(135deg, rgba(48, 54, 79, 0.8) 0%, rgba(172, 186, 196, 0.6) 100%), 
+                url('https://images.unsplash.com/photo-1534274988757-a28bf1a4c817?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+    height: 15vh;
     display: flex;
     justify-content: center;
     align-items: center;
+    box-shadow: 0 4px 20px rgba(48, 54, 79, 0.15);
+    animation: slideDown 0.6s ease-out;
+    position: relative;
+    overflow: hidden;
+    backdrop-filter: blur(10px);
+}
+
+header::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
 }
 
 main{
-
-    background-color: rgb(145, 195, 190);
-    height: 91vh;
-    
+    background: linear-gradient(135deg, rgba(48, 54, 79, 0.8) 0%, rgba(172, 186, 196, 0.6) 100%), 
+                url('https://images.unsplash.com/photo-1534274988757-a28bf1a4c817?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80') center/cover;
+    height: 85vh;
+    backdrop-filter: blur(10px);
 }
 
 .weather-container{
@@ -50,6 +131,20 @@ main{
     color: #333;
     font-size: 48px;
     font-weight: bold;
+    background: rgba(172, 186, 196, 0.2);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    box-shadow: 0 8px 32px rgba(48, 54, 79, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(172, 186, 196, 0.4);
+    padding: 20px;
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: fadeIn 0.6s ease-out 0.2s both, glow 3s ease-in-out 0.8s infinite;
+}
+
+.temperature:hover {
+    transform: translateY(-12px) scale(1.08);
+    background: rgba(172, 186, 196, 0.3);
+    box-shadow: 0 20px 50px rgba(48, 54, 79, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 .location-data{
@@ -61,6 +156,20 @@ main{
     align-items: center;
     color: #333;
     gap: 8px;
+    background: rgba(172, 186, 196, 0.2);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(48, 54, 79, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(172, 186, 196, 0.4);
+    transition: all 0.4s ease;
+    animation: fadeIn 0.6s ease-out 0.3s both, glow 3s ease-in-out 1s infinite;
+}
+
+.location-data:hover {
+    background: rgba(172, 186, 196, 0.3);
+    box-shadow: 0 16px 50px rgba(48, 54, 79, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.1);
+    transform: translateY(-5px);
 }
 
 .location {
@@ -92,6 +201,20 @@ main{
     align-items: center;
     color: #333;
     gap: 10px;
+    background: rgba(172, 186, 196, 0.2);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    padding: 20px;
+    box-shadow: 0 8px 32px rgba(48, 54, 79, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(172, 186, 196, 0.4);
+    transition: all 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+    animation: fadeIn 0.6s ease-out 0.4s both, glow 3s ease-in-out 1.2s infinite;
+}
+
+.weather-status:hover {
+    transform: translateY(-12px) scale(1.08);
+    background: rgba(172, 186, 196, 0.3);
+    box-shadow: 0 20px 50px rgba(48, 54, 79, 0.4), inset 0 0 30px rgba(255, 255, 255, 0.1);
 }
 
 .icon {
@@ -103,10 +226,85 @@ main{
 .icon img {
     height: 80px;
     width: 80px;
+    transition: transform 0.4s ease;
+    animation: fadeIn 0.6s ease-out 0.5s both;
+    filter: drop-shadow(0 0 8px rgba(255, 255, 255, 0.3));
+}
+
+.weather-status:hover .icon img {
+    transform: scale(1.15) rotate(15deg);
+    filter: drop-shadow(0 0 16px rgba(255, 255, 255, 0.6));
 }
 
 .condition {
     font-size: 18px;
     font-weight: 600;
+    text-transform: capitalize;
+    animation: fadeIn 0.6s ease-out 0.6s both;
+}
+
+.input-container {
+    display: flex;
+    gap: 10px;
+    animation: slideDown 0.6s ease-out;
+    height: fit-content;
+    background: rgba(172, 186, 196, 0.2);
+    backdrop-filter: blur(25px);
+    border-radius: 25px;
+    padding: 20px 30px;
+    box-shadow: 0 8px 32px rgba(48, 54, 79, 0.3), inset 0 0 20px rgba(255, 255, 255, 0.05);
+    border: 1.5px solid rgba(172, 186, 196, 0.4);
+    transition: all 0.4s ease;
+}
+
+input {
+    padding: 12px 20px;
+    border: 2px solid rgba(172, 186, 196, 0.4);
+    border-radius: 30px;
+    font-size: 16px;
+    background: rgba(172, 186, 196, 0.15);
+    backdrop-filter: blur(10px);
+    color: #333;
+    outline: none;
+    transition: all 0.3s ease;
+    min-width: 250px;
+}
+
+input:focus {
+    background: rgba(172, 186, 196, 0.25);
+    box-shadow: 0 0 30px rgba(172, 186, 196, 0.4);
+    transform: scale(1.02);
+    border-color: rgba(172, 186, 196, 0.6);
+}
+
+input::placeholder {
+    color: rgba(0, 0, 0, 0.5);
+}
+
+#button {
+    padding: 12px 30px;
+    background: rgba(172, 186, 196, 0.3);
+    backdrop-filter: blur(15px);
+    color: #333;
+    border: 2px solid rgba(172, 186, 196, 0.5);
+    border-radius: 30px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+    box-shadow: 0 4px 20px rgba(48, 54, 79, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    font-size: 15px;
+}
+
+#button:hover {
+    transform: translateY(-4px) scale(1.08);
+    background: rgba(172, 186, 196, 0.4);
+    box-shadow: 0 12px 30px rgba(48, 54, 79, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+}
+
+#button:active {
+    transform: translateY(0) scale(0.96);
+    box-shadow: 0 2px 10px rgba(48, 54, 79, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
